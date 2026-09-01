@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-martian), ui-monospace, monospace;
+  --font-sans: var(--font-roboto-mono), ui-monospace, monospace;
+
+  --color-slab: #9a9893;
+  --color-panel: #c4c2bd;
+  --color-ink: #141412;
+  --color-bone: #e6e4df;
+  /* The one non-grey in the build. Reserved for tickets, sold-out marks and
+     the live counter — three jobs, nothing decorative. */
+  --color-signal: #ff3b00;
+}
+
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+body {
+  background: var(--color-slab);
+  color: var(--color-ink);
+  min-height: 100dvh;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-bone);
+}
+
+/* Hard rules, no radius, no shadow. Brutalist grammar is weight and edge. */
+.edge { border: 2px solid var(--color-ink); }
+.edge-t { border-top: 2px solid var(--color-ink); }
+.edge-b { border-bottom: 2px solid var(--color-ink); }
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+.press {
+  transition: transform 140ms var(--ease-out), background-color 140ms var(--ease-out),
+    color 140ms var(--ease-out);
+}
+.press:active { transform: scale(0.97); }
+
+/* Photography is greyscale until you touch it. The colour is the reward,
+   and it keeps the page one temperature until the reader intervenes. */
+.plate img {
+  filter: grayscale(1) contrast(1.15);
+  transition: filter 260ms var(--ease-out), transform 420ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .plate:hover img { filter: grayscale(0) contrast(1.05); transform: scale(1.03); }
+}
+
+@keyframes slide {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: slide 34s linear infinite;
+}
+
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .plus { transform: rotate(45deg); }
+.plus { transition: transform 200ms var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+  .plate:hover img { transform: none; }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
