@@ -97,6 +97,9 @@ export function DayTabs({
 }) {
   const [i, setI] = useState(0);
   const day = days[i];
+  // Upstream DecryptedText has no reduced-motion handling, and the CSS
+  // override in globals.css cannot reach a setInterval character scramble.
+  const reduced = useReducedMotion();
 
   return (
     <div>
@@ -143,6 +146,11 @@ export function DayTabs({
                 names resolve out of noise as the cursor passes — and a
                 decommissioned plant is the one venue where a terminal
                 scramble is not an affectation. */}
+            {reduced ? (
+              <span className="font-display text-sm font-extrabold uppercase sm:text-base">
+                {a.name}
+              </span>
+            ) : (
             <DecryptedText
               text={a.name}
               animateOn="hover"
@@ -156,6 +164,7 @@ export function DayTabs({
               className="font-display"
               encryptedClassName="font-display opacity-45"
             />
+            )}
             <span className="text-[11px] tracking-[0.14em] opacity-70">{a.hall}</span>
           </li>
         ))}
