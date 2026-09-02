@@ -2,6 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import DecryptedText from "./reactbits/DecryptedText";
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const;
 
@@ -138,9 +139,23 @@ export function DayTabs({
             }`}
           >
             <span className="text-xs tabular-nums opacity-70">{a.time}</span>
-            <span className="font-display text-sm font-extrabold uppercase sm:text-base">
-              {a.name}
-            </span>
+            {/* React Bits DecryptedText. A lineup is a thing you scan, so the
+                names resolve out of noise as the cursor passes — and a
+                decommissioned plant is the one venue where a terminal
+                scramble is not an affectation. */}
+            <DecryptedText
+              text={a.name}
+              animateOn="hover"
+              sequential
+              revealDirection="start"
+              speed={28}
+              maxIterations={12}
+              useOriginalCharsOnly={false}
+              characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\|=-_"
+              parentClassName="font-display text-sm font-extrabold uppercase sm:text-base"
+              className="font-display"
+              encryptedClassName="font-display opacity-45"
+            />
             <span className="text-[11px] tracking-[0.14em] opacity-70">{a.hall}</span>
           </li>
         ))}
