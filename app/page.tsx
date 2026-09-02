@@ -353,6 +353,13 @@ export default function Home() {
                 );
               })}
             </ul>
+            <p className="mt-5 text-sm">
+              No tickets are for sale — the festival is invented.{" "}
+              <a href="https://github.com/new2codinglol/concrete-season" className="underline underline-offset-2">
+                Read the source
+              </a>
+              .
+            </p>
           </Reveal>
         </div>
       </section>
