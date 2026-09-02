@@ -8,8 +8,10 @@
   --color-panel: #c4c2bd;
   --color-ink: #141412;
   --color-bone: #e6e4df;
-  /* The one non-grey in the build. Reserved for tickets, sold-out marks and
-     the live counter — three jobs, nothing decorative. */
+  --color-paper: #f4f3f1;
+  /* The one non-grey in the build. After Eindhoven: editorial category
+     labels and sold-out marks ONLY. Never UI chrome, never a hover state,
+     never a focus ring. */
   --color-signal: #ff3b00;
 }
 
@@ -37,9 +39,13 @@ body {
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-  outline: 3px solid var(--color-signal);
+  outline: 3px solid var(--color-ink);
   outline-offset: 2px;
 }
+
+/* Eindhoven's binary radius: cards and inputs stay at 0, anything pressable
+   goes fully round. The pill against the hard edge is the whole signature. */
+.pill { border-radius: 500px; }
 
 .press {
   transition: transform 140ms var(--ease-out), background-color 140ms var(--ease-out),

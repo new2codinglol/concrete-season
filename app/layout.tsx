@@ -5,7 +5,7 @@ import "./globals.css";
 const display = Martian_Mono({
   subsets: ["latin"],
   variable: "--font-martian",
-  weight: ["600", "800"],
+  weight: ["400", "600", "800"],
 });
 
 const body = Roboto_Mono({

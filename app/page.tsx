@@ -123,8 +123,7 @@ export default function Home() {
           <span className="hidden text-xs tracking-[0.18em] sm:block">16–18 JUL 2027</span>
           <a
             href="#tickets"
-            className="press ml-auto edge px-4 py-2 font-display text-xs font-extrabold"
-            style={{ background: "var(--color-signal)", color: "var(--color-bone)" }}
+            className="press pill ml-auto bg-ink px-5 py-2 font-display text-xs font-extrabold text-bone"
           >
             TICKETS
           </a>
@@ -145,7 +144,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-slab/45" />
           <div className="absolute inset-0 flex items-end">
             <div className="mx-auto w-full max-w-6xl px-4 pb-8">
-              <h1 className="font-display text-[13vw] font-extrabold uppercase leading-[0.82] tracking-[-0.05em] sm:text-[8.4rem]">
+              <h1 className="font-display text-[15vw] font-normal uppercase leading-[0.88] tracking-[-0.055em] sm:text-[10.5rem]">
                 Concrete
                 <br />
                 Season
@@ -193,7 +192,10 @@ export default function Home() {
       {/* ---------------------------------------------------------- bill */}
       <section id="bill" className="mx-auto max-w-6xl px-4 py-14">
         <Reveal>
-          <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight sm:text-5xl">
+          <p className="mb-4 font-display text-[11px] font-extrabold tracking-[0.28em]" style={{ color: "var(--color-signal)" }}>
+            01 · THE BILL
+          </p>
+          <h2 className="font-display text-4xl font-normal uppercase leading-[0.95] tracking-[-0.04em] sm:text-[4.2rem]">
             The bill
           </h2>
           <p className="mt-3 max-w-xl">
@@ -211,15 +213,18 @@ export default function Home() {
       <section id="halls" className="edge-t bg-panel">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <Reveal>
-            <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight sm:text-5xl">
+            <p className="mb-4 font-display text-[11px] font-extrabold tracking-[0.28em]" style={{ color: "var(--color-signal)" }}>
+              02 · THE HALLS
+            </p>
+            <h2 className="font-display text-4xl font-normal uppercase leading-[0.95] tracking-[-0.04em] sm:text-[4.2rem]">
               Four halls, one building
             </h2>
           </Reveal>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-0 border-2 border-ink md:grid-cols-3">
             {HALLS.map((h, i) => (
               <Reveal key={h.name} delay={i * 0.06}>
-                <article className="plate h-full edge bg-slab">
+                <article className="plate h-full border-ink bg-slab [&:not(:last-child)]:border-b-2 md:[&:not(:last-child)]:border-b-0 md:[&:not(:last-child)]:border-r-2">
                   <div className="relative h-52 overflow-hidden edge-b">
                     <Image
                       src={U(h.photo, 640)}
@@ -268,7 +273,10 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={0.06}>
-            <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight sm:text-5xl">
+            <p className="mb-4 font-display text-[11px] font-extrabold tracking-[0.28em]" style={{ color: "var(--color-signal)" }}>
+              03 · THE SITE
+            </p>
+            <h2 className="font-display text-4xl font-normal uppercase leading-[0.95] tracking-[-0.04em] sm:text-[4.2rem]">
               The site
             </h2>
             <p className="mt-3 leading-relaxed">
@@ -299,7 +307,10 @@ export default function Home() {
       <section id="tickets" className="edge-t bg-ink text-bone">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <Reveal>
-            <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight sm:text-5xl">
+            <p className="mb-4 font-display text-[11px] font-extrabold tracking-[0.28em]" style={{ color: "var(--color-signal)" }}>
+              04 · TICKETS
+            </p>
+            <h2 className="font-display text-4xl font-normal uppercase leading-[0.95] tracking-[-0.04em] sm:text-[4.2rem]">
               Tickets
             </h2>
             <p className="mt-3 max-w-xl">
@@ -325,7 +336,7 @@ export default function Home() {
                     <span className="ml-auto font-display text-lg tabular-nums">{t.price}</span>
                     {gone ? (
                       <span
-                        className="px-3 py-1.5 font-display text-[11px] font-extrabold tracking-[0.14em]"
+                        className="pill px-3 py-1.5 font-display text-[11px] font-extrabold tracking-[0.14em]"
                         style={{ background: "var(--color-signal)", color: "var(--color-bone)" }}
                       >
                         SOLD OUT
@@ -333,7 +344,7 @@ export default function Home() {
                     ) : (
                       <a
                         href="#tickets"
-                        className="press border-2 border-bone px-4 py-1.5 font-display text-[11px] font-extrabold tracking-[0.14em] hover:bg-bone hover:text-ink"
+                        className="press pill border-2 border-bone px-5 py-1.5 font-display text-[11px] font-extrabold tracking-[0.14em] hover:bg-bone hover:text-ink"
                       >
                         BUY
                       </a>
@@ -350,7 +361,10 @@ export default function Home() {
       <section className="edge-t bg-panel">
         <div className="mx-auto max-w-3xl px-4 py-14">
           <Reveal>
-            <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+            <p className="mb-4 font-display text-[11px] font-extrabold tracking-[0.28em]" style={{ color: "var(--color-signal)" }}>
+              05 · PRACTICALITIES
+            </p>
+            <h2 className="font-display text-4xl font-normal uppercase leading-[0.95] tracking-[-0.04em] sm:text-[3.4rem]">
               Before you ask
             </h2>
           </Reveal>
